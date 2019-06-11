@@ -1,0 +1,6 @@
+# Node modules
+node_modules
+
+uploads/resized/*
+# Environment variables, never commit this file
+.env
