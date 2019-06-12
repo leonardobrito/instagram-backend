@@ -12,9 +12,9 @@
   "license": "MIT",
   "scripts": {
     "build": "node build/build.js",
-    "test": "NODE_ENV=test",
-    "start": "node -r dotenv/config src/index.js",
-    "dev": "NODE_ENV=development nodemon -r dotenv/config src/index.js --ignore __tests__"
+    "test": "NODE_ENV=test jest",
+    "start": "node src/index.js",
+    "dev": "NODE_ENV=development nodemon src/index.js --ignore __tests__"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -27,6 +27,7 @@
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
+    "jest": "^24.8.0",
     "nodemon": "^1.19.1"
   }
 }
