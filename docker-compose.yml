@@ -1,0 +1,20 @@
+version: "3"
+networks:
+  proxy:
+    external: true
+services:
+  instagram-backend:
+    build: .
+    container_name: instagram-backend
+    command: npm start
+    ports:
+      - 3000
+    restart: always
+    labels:
+      - traefik.backend=instagram-backend
+      - traefik.frontend.rule=Host:instagram-backend.com.br
+      - traefik.docker.network=proxy
+      - traefik.port=3000
+      - "traefik.enable=true"
+    networks:
+      - proxy

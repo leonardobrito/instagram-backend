@@ -1,16 +1,14 @@
-const express = require("express");
+const routes = require("express").Router();
+
 const multer = require("multer");
 const uploadConfig = require("./config/upload");
-
-const PostController = require("./controllers/PostController");
-const LikeController = require("./controllers/LikeController");
-
-const routes = new express.Router();
 const upload = multer(uploadConfig);
 
-routes.get("/", (req, res) => {
-  return res.send("Status");
-});
+const AppController = require("./app/controllers/AppController");
+const PostController = require("./app/controllers/PostController");
+const LikeController = require("./app/controllers/LikeController");
+
+routes.get("/", AppController.status);
 routes.get("/posts", PostController.index);
 routes.post("/posts", upload.single("image"), PostController.store);
 routes.post("/posts/:id/like", LikeController.store);
