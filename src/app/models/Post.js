@@ -1,4 +1,4 @@
-const moongose = require("mongoose");
+const moongose = require('mongoose');
 
 const PostSchema = new moongose.Schema(
   {
@@ -9,12 +9,12 @@ const PostSchema = new moongose.Schema(
     image: String,
     likes: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   {
-    timestamps: true
-  }
+    timestamps: true,
+  },
 );
 
-module.exports = moongose.model("Post", PostSchema);
+module.exports = moongose.model('Post', PostSchema);
